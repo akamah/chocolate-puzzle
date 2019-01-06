@@ -76,7 +76,7 @@ const vector<vector<string>> piece_data = {
 };
 
 vector<vector<piece>> P(11);
-vector<vector<vector<tuple<int, piece>>>> M = vector<vector<vector<tuple<int, piece>>>>(H, vector<vector<tuple<int, piece>>>(W));
+vector<vector<vector<tuple<int, piece>>>> M(H, vector<vector<tuple<int, piece>>>(W));
 
 
 
@@ -158,7 +158,7 @@ void init_pieces() {
       pcs[k] = rotate(pcs[k-1]);
     }
 
-    for (int k = 1; k < 4; k++) {
+    for (int k = 0; k < 4; k++) {
       for (int y = -SIZE + 1; y < H; y++) {
         for (int x = -SIZE + 1; x < W; x++) {
           piece p = shift(pcs[k], x, y);
